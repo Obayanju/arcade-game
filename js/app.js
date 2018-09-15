@@ -19,11 +19,10 @@ class Enemy {
   }
 }
 
-// the images should have loaded and cached by Resources.load before
+// the images should have loaded and cached by Resources before
 // calling the render method
 window.addEventListener("load", () => {
   let enemy = new Enemy();
-  enemy.render();
 });
 
 // Update the enemy's position, required method for game
