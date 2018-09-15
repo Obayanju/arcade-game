@@ -13,33 +13,34 @@ class Enemy {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  updateLocation(x, y) {
-    this.x = x;
-    this.y = y;
+  // Update the enemy's position, required method for game
+  // Parameter: dt, a time delta between ticks
+  update(dt) {
+    // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
   }
 }
-
-// the images should have loaded and cached by Resources before
-// calling the render method
-window.addEventListener("load", () => {
-  let enemy = new Enemy();
-});
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-  // You should multiply any movement by the dt parameter
-  // which will ensure the game runs at the same speed for
-  // all computers.
-};
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+class Player {
+  update() {}
+  render() {}
+  handleInput() {}
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+let allEnemies = [];
+for (let i = 0; i < 4; i += 1) {
+  let enemy = new Enemy();
+  allEnemies.push(enemy);
+}
+
+let player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
