@@ -1,3 +1,4 @@
+/****************** RANDNUMUTIL CLASS *************************/
 class RandNumUtil {
   static getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -7,6 +8,8 @@ class RandNumUtil {
     return Math.floor(Math.random() * Math.floor(max));
   }
 }
+
+/****************** ENEMY CLASS *************************/
 class Enemy {
   constructor() {
     // The image/sprite for our enemies, this uses
@@ -36,13 +39,23 @@ class Enemy {
     return yPositions[RandNumUtil.getRandomInt(3)];
   }
 }
-
+/****************** PLAYER CLASS *************************/
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
+  constructor() {
+    this.sprite = "images/char-horn-girl.png";
+    this.x = 205;
+    this.y = 400;
+  }
+  // Draw the player on the screen, required method for game
+  render() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+
+  // Update the player's position, required method for game
   update() {}
-  render() {}
   handleInput() {}
 }
 
