@@ -3,7 +3,7 @@ class Enemy {
     // The image/sprite for our enemies, this uses
     // a helper to easily load images
     this.sprite = "images/enemy-bug.png";
-    this.x = 1;
+    this.x = -70;
     this.y = this.getRandomEnemyYPosition();
     this.speed = this.getRandomArbitrary(80, 210);
   }
