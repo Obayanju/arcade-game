@@ -4,8 +4,8 @@ class Enemy {
     // a helper to easily load images
     this.sprite = "images/enemy-bug.png";
     this.x = 1;
-    this.y = 60;
-    this.speed = 90;
+    this.y = this.getRandomEnemyYPosition();
+    this.speed = this.getRandomArbitrary(80, 210);
   }
 
   // Draw the enemy on the screen, required method for game
@@ -20,6 +20,19 @@ class Enemy {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += dt * this.speed;
+  }
+
+  getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  getRandomEnemyYPosition() {
+    const yPositions = [60, 140, 225];
+    return yPositions[this.getRandomInt(3)];
   }
 }
 
@@ -36,7 +49,7 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
-for (let i = 0; i < 4; i += 1) {
+for (let i = 0; i < 3; i += 1) {
   let enemy = new Enemy();
   allEnemies.push(enemy);
 }
