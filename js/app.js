@@ -1,3 +1,12 @@
+class RandNumUtil {
+  static getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  static getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+}
 class Enemy {
   constructor() {
     // The image/sprite for our enemies, this uses
@@ -5,7 +14,7 @@ class Enemy {
     this.sprite = "images/enemy-bug.png";
     this.x = -70;
     this.y = this.getRandomEnemyYPosition();
-    this.speed = this.getRandomArbitrary(80, 210);
+    this.speed = RandNumUtil.getRandomArbitrary(80, 210);
   }
 
   // Draw the enemy on the screen, required method for game
@@ -22,17 +31,9 @@ class Enemy {
     this.x += dt * this.speed;
   }
 
-  getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-
   getRandomEnemyYPosition() {
     const yPositions = [60, 140, 225];
-    return yPositions[this.getRandomInt(3)];
+    return yPositions[RandNumUtil.getRandomInt(3)];
   }
 }
 
@@ -49,10 +50,19 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
-for (let i = 0; i < 3; i += 1) {
-  let enemy = new Enemy();
-  allEnemies.push(enemy);
+function createAndPushEnemies() {
+  for (let i = 0; i < 3; i += 1) {
+    let enemy = new Enemy();
+    allEnemies.push(enemy);
+  }
 }
+createAndPushEnemies();
+
+// create new Enemies every 2-4 seconds
+const intervalID = window.setInterval(() => {
+  createAndPushEnemies();
+}, RandNumUtil.getRandomArbitrary(2000, 4000));
+
 let player = new Player();
 
 // This listens for key presses and sends the keys to your
