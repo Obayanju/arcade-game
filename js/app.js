@@ -3,9 +3,9 @@ class Enemy {
     // The image/sprite for our enemies, this uses
     // a helper to easily load images
     this.sprite = "images/enemy-bug.png";
-    this.x = 0;
-    this.y = 0;
-    this.speed = 10;
+    this.x = 1;
+    this.y = 60;
+    this.speed = 90;
   }
 
   // Draw the enemy on the screen, required method for game
@@ -19,6 +19,7 @@ class Enemy {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x += dt * this.speed;
   }
 }
 
@@ -39,7 +40,6 @@ for (let i = 0; i < 4; i += 1) {
   let enemy = new Enemy();
   allEnemies.push(enemy);
 }
-
 let player = new Player();
 
 // This listens for key presses and sends the keys to your
