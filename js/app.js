@@ -47,7 +47,14 @@ class Player {
   constructor() {
     this.sprite = "images/char-horn-girl.png";
     this.x = 205;
-    this.y = 400;
+    this.y = 380;
+    // horizontal and vertical motion
+    this.hMotion = 100;
+    this.vMotion = 80;
+    this.xLeftBound = 5;
+    this.xRightBound = 405;
+    this.yUpBound = -20;
+    this.yDownBound = 380;
   }
   // Draw the player on the screen, required method for game
   render() {
@@ -56,7 +63,31 @@ class Player {
 
   // Update the player's position, required method for game
   update() {}
-  handleInput() {}
+
+  handleInput(clickedKey) {
+    switch (clickedKey) {
+      case "left":
+        if (this.x !== this.xLeftBound) {
+          this.x -= this.hMotion;
+        }
+        break;
+      case "right":
+        if (this.x !== this.xRightBound) {
+          this.x += this.hMotion;
+        }
+        break;
+      case "up":
+        if (this.y !== this.yUpBound) {
+          this.y -= this.vMotion;
+        }
+        break;
+      case "down":
+        if (this.y !== this.yDownBound) {
+          this.y += this.vMotion;
+        }
+        break;
+    }
+  }
 }
 
 // Now instantiate your objects.
