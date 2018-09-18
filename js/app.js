@@ -13,7 +13,7 @@ class RandNumUtil {
 class Enemy {
   constructor() {
     this.width = 100;
-    this.height = 80;
+    this.height = 70;
     // The image/sprite for our enemies, this uses
     // a helper to easily load images
     this.sprite = "images/enemy-bug.png";
@@ -49,8 +49,6 @@ class Enemy {
 
   checkCollisions() {
     if (
-      // check if player is on the last line of grass
-      !player.isOnGrass() &&
       player.x < this.x + this.width &&
       player.x + player.width > this.x &&
       player.y < this.y + this.height &&
@@ -68,7 +66,7 @@ class Player {
   constructor() {
     this.sprite = "images/char-horn-girl.png";
     this.width = 80;
-    this.height = 80;
+    this.height = 70;
     this.initialX = 205;
     this.initialY = 380;
     this.x = this.initialX;
@@ -142,12 +140,6 @@ class Player {
         }
         break;
     }
-  }
-
-  // check if player is on the last line of grass
-  isOnGrass() {
-    if (this.y === 300) return true;
-    return false;
   }
 
   resetPlayer() {
