@@ -13,7 +13,7 @@ This was built as a project of the Udacity Frontend Nanodegree to help practice 
 
 ## Screenshots
 
-![Arcade game clone](img/screenshot.png)
+![Arcade game clone](images/screenshot.png)
 
 ## Tech/framework used
 
