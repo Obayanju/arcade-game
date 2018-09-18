@@ -49,6 +49,7 @@ class Enemy {
 
   checkCollisions() {
     if (
+      // check if player is on the last line of grass
       !player.isOnGrass() &&
       player.x < this.x + this.width &&
       player.x + player.width > this.x &&
