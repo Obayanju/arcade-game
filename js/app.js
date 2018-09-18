@@ -12,6 +12,8 @@ class RandNumUtil {
 /****************** ENEMY CLASS *************************/
 class Enemy {
   constructor() {
+    this.width = 100;
+    this.height = 80;
     // The image/sprite for our enemies, this uses
     // a helper to easily load images
     this.sprite = "images/enemy-bug.png";
@@ -32,11 +34,27 @@ class Enemy {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += dt * this.speed;
+    // reset the player position if it collides with the enemy
+    if (this.checkCollisions()) {
+      player.resetPlayer();
+    }
   }
 
   getRandomEnemyYPosition() {
     const yPositions = [60, 140, 225];
     return yPositions[RandNumUtil.getRandomInt(3)];
+  }
+
+  checkCollisions() {
+    if (
+      !player.isOnGrass() &&
+      player.x < this.x + this.width &&
+      player.x + player.width > this.x &&
+      player.y < this.y + this.height &&
+      player.y + player.height > this.y
+    ) {
+      return true;
+    }
   }
 }
 /****************** PLAYER CLASS *************************/
@@ -46,8 +64,12 @@ class Enemy {
 class Player {
   constructor() {
     this.sprite = "images/char-horn-girl.png";
-    this.x = 205;
-    this.y = 380;
+    this.width = 80;
+    this.height = 80;
+    this.initialX = 205;
+    this.initialY = 380;
+    this.x = this.initialX;
+    this.y = this.initialY;
     // horizontal and vertical motion
     this.hMotion = 100;
     this.vMotion = 80;
@@ -87,6 +109,17 @@ class Player {
         }
         break;
     }
+  }
+
+  // check if player is on the last line of grass
+  isOnGrass() {
+    if (this.y === 300) return true;
+    return false;
+  }
+
+  resetPlayer() {
+    this.x = this.initialX;
+    this.y = this.initialY;
   }
 }
 
