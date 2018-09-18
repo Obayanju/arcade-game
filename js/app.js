@@ -79,14 +79,44 @@ class Player {
     this.xRightBound = 405;
     this.yUpBound = -20;
     this.yDownBound = 380;
+    this.atStream = false;
   }
   // Draw the player on the screen, required method for game
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 
-  // Update the player's position, required method for game
-  update() {}
+  // check if user is at end of game
+  // Since update runs many times per second,
+  // we make sure to check only onces once the player
+  // is at the end of the game. This is done with
+  // this.atStream
+  update() {
+    if (!this.atStream && this.atEndOfGame()) {
+      this.endGame();
+    }
+  }
+
+  // check if user is at stream
+  atEndOfGame() {
+    if (this.y === this.yUpBound) {
+      // update no longer executes
+      this.atStream = true;
+      return true;
+    }
+  }
+
+  endGame() {
+    swal({
+      title: "The game is won!",
+      text: "Thanks for playing 😊",
+      icon: "success",
+      button: "sweet"
+    }).then(() => {
+      this.resetPlayer();
+      this.atStream = false;
+    });
+  }
 
   handleInput(clickedKey) {
     switch (clickedKey) {
