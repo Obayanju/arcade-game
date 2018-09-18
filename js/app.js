@@ -36,7 +36,9 @@ class Enemy {
     this.x += dt * this.speed;
     // reset the player position if it collides with the enemy
     if (this.checkCollisions()) {
-      player.resetPlayer();
+      setTimeout(() => {
+        player.resetPlayer();
+      }, 200);
     }
   }
 
