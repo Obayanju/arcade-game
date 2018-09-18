@@ -1,4 +1,4 @@
-/****************** RANDNUMUTIL CLASS *************************/
+/** **************** RANDNUMUTIL CLASS *************************/
 class RandNumUtil {
   static getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
@@ -9,7 +9,7 @@ class RandNumUtil {
   }
 }
 
-/****************** ENEMY CLASS *************************/
+/** **************** ENEMY CLASS *************************/
 class Enemy {
   constructor() {
     this.width = 100;
@@ -59,7 +59,7 @@ class Enemy {
     }
   }
 }
-/****************** PLAYER CLASS *************************/
+/** **************** PLAYER CLASS *************************/
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -168,7 +168,7 @@ function createAndPushEnemies() {
 createAndPushEnemies();
 
 // create new Enemies every 2-4 seconds
-const intervalID = window.setInterval(() => {
+window.setInterval(() => {
   createAndPushEnemies();
 }, RandNumUtil.getRandomArbitrary(2000, 4000));
 

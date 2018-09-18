@@ -1,0 +1,10 @@
+{
+  "extends": "standard",
+  "rules": {
+    "quotes": ["error", "double"],
+    "space-before-function-paren": ["error", "never"],
+    "semi": ["error", "always"]
+  },
+  "globals": { "swal": true, "ctx": true, "Resources": true },
+  "env": { "browser": true, "node": true }
+}
