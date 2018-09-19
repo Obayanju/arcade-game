@@ -6,6 +6,12 @@ A classic arcade game where you control a player to evade bugs and get to the en
 
 This was built as a project of the Udacity Frontend Nanodegree to help practice my Javascript skills.
 
+## How to Run?
+
+- fork the repository
+- clone the forked version of the respository with git clone `<link of repo>` on your terminal in the directory you want the game in. The link is found in the green clone or download button on github.
+- open the game in browser of choice by copying and pasting the path
+
 ## How to Play?
 
 - use direction keys up, left, down, and right to move the player
