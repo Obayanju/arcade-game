@@ -22,8 +22,8 @@ This was built as a project of the Udacity Frontend Nanodegree to help practice 
 - CSS
 - [ESLint](https://eslint.org/)
 - [SweetAlert](https://sweetalert.js.org/)
+- [Prettier](https://prettier.io/)
 - Git
-- Prettier
 
 ## ToDo
 
