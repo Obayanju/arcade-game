@@ -1,3 +1,4 @@
+"use strict";
 /** **************** RANDNUMUTIL CLASS *************************/
 class RandNumUtil {
   static getRandomArbitrary(min, max) {
@@ -48,14 +49,12 @@ class Enemy {
   }
 
   checkCollisions() {
-    if (
+    return (
       player.x < this.x + this.width &&
       player.x + player.width > this.x &&
       player.y < this.y + this.height &&
       player.y + player.height > this.y
-    ) {
-      return true;
-    }
+    );
   }
 }
 /** **************** PLAYER CLASS *************************/

@@ -1,6 +1,6 @@
 # frontend-nanodegree-arcade-game
 
-A classic arcade game where you control a player to evade bugs and get to the end of the game.
+A [classic arcade game](https://obayanju.github.io/arcade-game/) where you control a player to evade bugs and get to the end of the game.
 
 ## Motivation
 
